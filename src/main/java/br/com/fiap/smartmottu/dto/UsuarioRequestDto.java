@@ -1,19 +1,28 @@
-package br.com.fiap.smartmottu.api.model;
+package br.com.fiap.smartmottu.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.*;
 
-@Data
-public class LoginDto {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
-    @Email
+public class UsuarioRequestDto {
+
     @NotBlank
+    private String nome;
+
+    @NotBlank @Email
     private String email;
 
-    @NotBlank
     @Size(min = 8, max = 15)
+    @NotBlank
     private String senha;
+
+
 
 }
